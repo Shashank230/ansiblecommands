@@ -1,0 +1,78 @@
+ansible demo -b -m yum -a "pkg=httpd state=present"
+ansible demo -b -a "which httpd"
+ansible demo -b -m shell -a "systemctl status httpd"
+ansible demo -b -m service -a "name=httpd state=started"
+ansible demo -b -m service -a "name=httpd state=stopped"
+ansible demo -b -m yum -a "pkg=httpd state=absent"
+
+*****************************************************
+CREATE USER USING MODULE COMMANDS
+
+ansible demo -b -m user -a "name=HARISH state=present"
+ansible demo -b -a "cat/etc/passwd"
+ansible demo -b -m user -a "name=HARISH state=absent"
+
+*****************************************************
+CREATE GROUP'S USING MODULE COMMANDS
+
+ansible demo -b -m group -a "name=DEVOPS state=present"
+ansible demo -b -a "cat/etc/group"
+ansible demo -b -m group -a "name=DEVOPS state=absent"
+
+******************************************************
+CREATE DIRECTORY AND DELETE
+
+ansible demo -b -m file -a "path=/home/ansible/demo state=directory"
+ansible demo -b -m file -a "path=/home/ansible/demo state=absent"
+
+
+**********************************************************
+
+CREATE DIRECTORY BASED ON THEIR PERMISSION 0755
+
+ansible demo -b -m file -a "path=/home/ansible/demo state=directory module=0755"
+ansible demo -b -m file -a "path=/home/ansible/demo state=absent module=0755"
+
+**********************************************************************
+
+COPY FILE FROM MASTER TO SLAVE NODE
+
+ansible demo -b -m copy -a "src=/home/ansible/file.txt dest=/home/ansible"
+
+**************************************************************************
+TO CREATE A FILE WITH PERMISSION 755
+
+ansible demo -m file -a "path=/home/ansible/new.txt state=touch mode=0755"
+
+************************************************************************
+
+TO DELETE FILE WITH PERMISSION 755
+
+ansible demo -m file -a "path=/home/ansible/new.txt state=absent mode=0755"
+
+
+TO CREATE FILE :- ansible demo -m file -a "path=/home/ansible/jsp.txt state=touch"
+TO DELETE FILE :- ansible demo -m file -a "path=/home/ansible/jsp.txt state=absent"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
